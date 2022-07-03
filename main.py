@@ -2,9 +2,9 @@ from striprtf.striprtf import rtf_to_text
 import os
 import re
 
-path_origin = 'C:/Users/anpae/Desktop/Data_Rtf/sun_txt/'
-path_dest = 'C:/Users/anpae/Desktop/Data_Rtf/sun1'
-name = 'sunTele'
+path_origin = 'C:/Users/anpae/Desktop/Data_Rtf/guardian2/'
+path_dest = 'C:/Users/anpae/Desktop/Data_Rtf/guardian1'
+name = 'sunDaily'
 idx = 0
 aux = 0
 
@@ -13,7 +13,7 @@ for filename in os.listdir(path_origin):
     if os.path.isfile(filepath):
         with open(filepath, 'r') as file:
             text = file.read()  # rtf to txt
-            regex = re.sub(r'.(Sunday|Monday|Tuesday|Thursday|Wednesday|Friday|Saturday)(.*\n)*Body\n*' , ";" , text)
+            regex = re.sub(r'\s\n*Load-Date(.*\n*)*', "", text)
             if text[0:5] != "[Loca":
                 #print(regex)
                 num = str(idx)
