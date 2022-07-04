@@ -22,7 +22,7 @@ for filename in os.listdir(path_origin):
                     name='sun'
                 elif text[0:5] == "Daily":
                     name = 'Mirror'
-                regex = regex = re.sub(r'The Sun Says\w*\s*\W*.*', "", text)
+                regex = regex = re.sub(r'block-time[^\n]*\n', "", text)
                 #print(regex)
                 num = str(idx)
                 name_aux = name + "_" + num + ".txt"  # name of new file
