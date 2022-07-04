@@ -2,8 +2,8 @@ from striprtf.striprtf import rtf_to_text
 import os
 import re
 
-path_origin = 'C:/Users/anpae/Desktop/Data_Rtf/all/'
-path_dest = 'C:/Users/anpae/Desktop/Data_Rtf/allAux'
+path_origin = 'C:/Users/anpae/Desktop/Data_Rtf/allAux/'
+path_dest = 'C:/Users/anpae/Desktop/Data_Rtf/all'
 #name = 'guardian'
 idx = 0
 aux = 0
@@ -22,7 +22,7 @@ for filename in os.listdir(path_origin):
                     name='sun'
                 elif text[0:5] == "Daily":
                     name = 'Mirror'
-                regex = regex = re.sub(r'.Related:\s*[^\n]*\n', "", text)
+                regex = regex = re.sub(r'\nGraphic\w*\s*\W*.*', "", text)
                 #print(regex)
                 num = str(idx)
                 name_aux = name + "_" + num + ".txt"  # name of new file
