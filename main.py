@@ -15,17 +15,14 @@ for filename in os.listdir(path_origin):
             text = file.read()
             if text[0:5] != "[Loca":
                 if text[0:5] == "The G":
-                    regex = re.sub(r'The Guardian\n', "The Guardian;", text)
                     name='guardian'
                 elif text[0:5] == "The D":
-                    regex = regex = re.sub(r'Telegraph\s\W\w*\W\n', "Telegraph;", text)
                     name='telegraph'
                 elif text[0:5] == "The S":
-                    regex = regex = re.sub(r'Sun\s\W\w*\W\n', "Sun;", text)
                     name='sun'
                 elif text[0:5] == "Daily":
-                    regex = regex = re.sub(r'Mirror\n', "Mirror;", text)
                     name = 'Mirror'
+                regex = regex = re.sub(r'.Related:\s*[^\n]*\n', "", text)
                 #print(regex)
                 num = str(idx)
                 name_aux = name + "_" + num + ".txt"  # name of new file
